@@ -26,14 +26,19 @@ document.querySelector("#faster").addEventListener("click", function() {
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-    if (video.currentTime + 15 >= video.duration) {
-        video.currentTime = 0;
-        console.log("Go Forward");
+    // Calculate the new time after skipping ahead by 10 seconds
+    var newTime = video.currentTime + 10;
+    
+    // If the new time exceeds the video duration, restart the video from the beginning
+    if (newTime >= video.duration) {
+        video.currentTime = 0; // Restart from the beginning
+        console.log("Restarted video");
     } else {
-        video.currentTime += 15;
+        video.currentTime = newTime; // Skip ahead by 10 seconds
         console.log("Current time is " + video.currentTime);
     }
 });
+
 
 document.querySelector("#mute").addEventListener("click", function() {
     if (video.muted == false) {
