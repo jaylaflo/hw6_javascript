@@ -16,19 +16,19 @@ document.querySelector("#pause").addEventListener("click", function() {
 });
 
 document.querySelector("#slower").addEventListener("click", function() {
-    video.playbackRate *= 0.95;
+    video.playbackRate -= 0.1;
     console.log("New speed is " + video.playbackRate);
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
-    video.playbackRate /= 0.95;
+    video.playbackRate += 0.1;
     console.log("New speed is " + video.playbackRate);
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
-    if (video.currentTime + 15 > video.duration) {
+    if (video.currentTime + 15 >= video.duration) {
         video.currentTime = 0;
-        console.log("fast forward");
+        console.log("Go Forward");
     } else {
         video.currentTime += 15;
         console.log("Current time is " + video.currentTime);
